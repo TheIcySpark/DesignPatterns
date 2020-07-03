@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.464516, 1 )
+colors = PoolColorArray( 0.207031, 0.150421, 0.150421, 1, 0.839844, 0.534385, 0.177155, 1, 0.929688, 0.0326843, 0.0326843, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[node name="BasePatron" type="Node"]
+
+[node name="Fondos" type="ParallaxBackground" parent="."]
+
+[node name="FondoPrincipal" type="TextureRect" parent="Fondos"]
+margin_right = 640.0
+margin_bottom = 1136.0
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

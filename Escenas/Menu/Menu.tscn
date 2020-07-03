@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Menu/BotonSalir.gd" type="Script" id=1]
+[ext_resource path="res://RecursosInternos/Temas/Bord.tres" type="Theme" id=2]
+[ext_resource path="res://Scripts/Menu/BotonSeleccionarNivel.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Menu/BotonVolver.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Menu/BotonCommand.gd" type="Script" id=5]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BotonesPrincipales" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -179.0
+margin_top = -49.0
+margin_right = 179.0
+margin_bottom = 49.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BotonSeleccionarNivel" type="Button" parent="BotonesPrincipales"]
+margin_right = 358.0
+margin_bottom = 47.0
+text = "Seleccionar Patron"
+script = ExtResource( 3 )
+
+[node name="BotonSalir" type="Button" parent="BotonesPrincipales"]
+margin_top = 51.0
+margin_right = 358.0
+margin_bottom = 98.0
+text = "Salir"
+script = ExtResource( 1 )
+
+[node name="Patrones" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="BotonesPatrones" type="VBoxContainer" parent="Patrones"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -100.0
+margin_right = 96.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BotonCommand" type="Button" parent="Patrones/BotonesPatrones"]
+margin_right = 192.0
+margin_bottom = 47.0
+text = "Command"
+script = ExtResource( 5 )
+
+[node name="BotonFlyweight" type="Button" parent="Patrones/BotonesPatrones"]
+margin_top = 51.0
+margin_right = 192.0
+margin_bottom = 98.0
+text = "Flyweight"
+
+[node name="BotonPrototype" type="Button" parent="Patrones/BotonesPatrones"]
+margin_top = 102.0
+margin_right = 192.0
+margin_bottom = 149.0
+text = "Prototype"
+
+[node name="BotonState" type="Button" parent="Patrones/BotonesPatrones"]
+margin_top = 153.0
+margin_right = 192.0
+margin_bottom = 200.0
+text = "State"
+
+[node name="BotonVolver" type="Button" parent="Patrones"]
+margin_left = 224.0
+margin_top = 1072.0
+margin_right = 416.0
+margin_bottom = 1119.0
+text = "Volver"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="BotonesPrincipales/BotonSeleccionarNivel" to="BotonesPrincipales/BotonSeleccionarNivel" method="_on_BotonSeleccionarNivel_button_up"]
+[connection signal="button_up" from="BotonesPrincipales/BotonSalir" to="BotonesPrincipales/BotonSalir" method="_on_BotonSalir_button_up"]
+[connection signal="button_up" from="Patrones/BotonesPatrones/BotonCommand" to="Patrones/BotonesPatrones/BotonCommand" method="_on_BotonCommand_button_up"]
+[connection signal="button_up" from="Patrones/BotonVolver" to="Patrones/BotonVolver" method="_on_BotonVolver_button_up"]
